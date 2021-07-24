@@ -1033,7 +1033,7 @@ Both pass in the context.
 
 Let's change the home page template to use these new partials.
 
-```html
+```
 $ vi themes/zafta/layouts/index.html
 {{ partial "header.html" . }}
 

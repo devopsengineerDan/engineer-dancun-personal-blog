@@ -22,36 +22,17 @@ paginate = 8
     weight = 3
 
 [params]
-  author = "Dancun Manyinsa"
-  description = "Software Engineer,Reseacher and Habitual Quant"
+  author = "John Doe"
+  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
   menu_item_separator = " - "
   [[params.social]]
     icon = "github"
     name = "Github"
-    url = "https://www.github.com/DancunManyinsa"
+    url = "https://github.com/gohugoio"
   [[params.social]]
-    icon = "linkedin"
-    name = "Linkedin"
-    url = "https://www.linkedin.com/in/dancun-manyinsa-42518a17b/"
-  [[params.social]]
-    icon = "gmail"
-    name = "Gmail"
-    url = "mailto:dancunmoruri@gmail.com"
-    
-    
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Loading complete
+    icon = "twitter"
+    name = "Twitter"
+    url = "https://twitter.com/gohugoio"
 
   # Default theme
   #[params.style]
