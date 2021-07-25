@@ -147,4 +147,3 @@ Depending on the amount of customization that was done with each post with Jekyl
 
 ### Clean up
 You'll want to remove the Jekyll configuration at this point. If you have anything else that isn't used, delete it.
-
