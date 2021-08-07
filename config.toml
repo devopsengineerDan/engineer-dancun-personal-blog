@@ -47,7 +47,7 @@ paginate = 8
 
 [params]
   author = "Dancun Manyinsa"
-  description = "Software Engineer, Reseacher(AI and Quantum Science), and Habitual Quant"
+  description = "Software Engineer, Researcher(AI and Quantum Science), and Habitual Quant"
   menu_item_separator = " - "
   [[params.social]]
     icon = "github"
