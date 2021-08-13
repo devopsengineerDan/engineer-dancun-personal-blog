@@ -28,8 +28,8 @@ Follow the following steps:
 
 Corresponding pseudo commands:
 ```s
-$git clone https://github.com/spf13/hugo
-$cd hugo
+$ git clone https://github.com/spf13/hugo
+$ cd hugo
 /path/to/where/you/installed/hugo server --source=./docs
 > 29 pages created
 > 0 tags index created
