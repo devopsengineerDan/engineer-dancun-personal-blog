@@ -45,11 +45,11 @@
 #baseURt = "https://devopsengineerdan.github.io/"
 baseURL = "https://devopsengineerdan.github.io/"
 languageCode = "en-us"
-author = "Dancun Manyinsa" 
+author = "Devops Engineer Dan" 
 title = "Engineer Dancun"
-themesDir = "./static/avatar.jpg"
-#themesDir = "../.."
-#theme = "m10c"
+#themesDir = "./static/avatar.jpg"
+themesDir = "../.."
+theme = "m10c"
 paginate = 8
 
 [menu]
@@ -96,7 +96,4 @@ paginate = 8
     lightColor =    "#828282"
     lightestColor = "#ffffff"
     primaryColor =  "#ffd700"   
-
-
-  
 

@@ -2,3 +2,9 @@
 	path = public
 	url = https://github.com/devopsengineerDan/devopsengineerdan.github.io.git
 	branch = main
+[submodule "themes/m10c/hugo-theme-m10c"]
+	path = themes/m10c/hugo-theme-m10c
+	url = https://github.com/vaga/hugo-theme-m10c.git
+[submodule "devopsengineerdan.github.io"]
+	path = devopsengineerdan.github.io
+	url = https://github.com/devopsengineerDan/devopsengineerdan.github.io.git
