@@ -40,9 +40,6 @@
 
 
 
-
-
-#baseURt = "https://devopsengineerdan.github.io/"
 baseURL = "https://devopsengineerdan.github.io/"
 languageCode = "en-us"
 author = "Dancun Manyinsa" 
