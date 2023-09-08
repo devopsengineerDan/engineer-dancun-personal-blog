@@ -6,7 +6,7 @@ date = "2019-06-13"
 ---
 
 # Watch MicroPython in action
-[![Watch the video](https://i.stack.imgur.com/Vp2cE.png)](https://www.youtube.com/embed/5LbgyDmRu9s?rel=0)
+[![Watch the video]](https://www.youtube.com/embed/5LbgyDmRu9s?rel=0)
 
 [![CI badge](https://github.com/micropython/micropython/workflows/unix%20port/badge.svg)](https://github.com/micropython/micropython/actions?query=branch%3Amaster+event%3Apush) [![codecov](https://codecov.io/gh/micropython/micropython/branch/master/graph/badge.svg?token=I92PfD05sD)](https://codecov.io/gh/micropython/micropython)
 
