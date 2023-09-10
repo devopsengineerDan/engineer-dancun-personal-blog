@@ -1,11 +1,15 @@
 ---
-title: "Engineering Data Pipelines Part1"
-date: "2023-09-08"
+title: "Best Practices for Engineering ML Pipelines - Part 2"
+tags: ["python"]
+date: 2023-09-09T13:30:03+03:00
+#Decide to delete draft or change it to false in order to display post on website
+draft: false
 ---
+-------
 
-# Engineering ML Pipelines - Part Two
+![pipelines-logo](https://github.com/devopsengineerDan/engineer-dancun-personal-blog/assets/48592378/4eb0599c-7062-4e5a-84cf-b03055e87bf1)
 
-This is the second part in a series of articles demonstrating best practices for engineering ML pipelines and deploying them to production. In the [first part](https://www.bodyworkml.com/posts/engineering-ml-pipelines-part-1) we focused on project setup - everything from codebase structure to configuring a CI/CD pipeline and making an initial deployment of a skeleton pipeline.
+This is the second part in a series of articles demonstrating best practices for engineering ML pipelines and deploying them to production. In the [first part]({filename}engineering-ml-pipelines-part-1.md) we focused on project setup - everything from codebase structure to configuring a CI/CD pipeline and making an initial deployment of a skeleton pipeline.
 
 In this part we are going to focus on developing a fully-operational pipeline and will cover:
 
@@ -20,11 +24,36 @@ In this part we are going to focus on developing a fully-operational pipeline an
 
 All of the code referred to in this series of posts is available on  [GitHub](https://github.com/bodywork-ml/ml-pipeline-engineering), with a dedicated branch for each part, so you can explore the code in its various stages of development. Have a quick look before reading on.
 
+
+> ### Table of Contents
+
+- [A Simple Strategy for Dataset and Model Versioning](#a-simple-strategy-for-dataset-and-model-versioning)
+- [Reusing Common Code](#reusing-common-code)
+    - [Distributing Python Packages within your Company](#distributing-python-packages-within-your-company)   
+- [Defending Against Errors and Handling Failures](#defending-against-errors-and-handling-failures)
+- [Configurable Pipelines](#configurable-pipelines)
+- [Engineering the Model Training Job](#engineering-the-model-training-job)
+    - [Prepare Data](#prepare-data)
+    - [Train Model](#train-model)
+    - [Validating Trained Models](#validating-trained-models)
+    - [End-to-End Functional Tests](#end-to-end-functional-tests)
+    - [Input Validation for the Stage](#input-validation-for-the-stage)
+- [Developing the Model Serving Stage](#developing-the-model-serving-stage)
+    - [Updating the Tests](#updating-the-tests) 
+- [Updating the Deployment and Releasing to Production](#updating-the-deployment-and-releasing-to-production)
+- [Scheduling the Pipeline to run on a Schedule](#scheduling-the-pipeline-to-run-on-a-schedule)
+- [Wrap-Up](#wrap-up)
+- [Appendix](#appendix)
+    - [The Dataset Class](#the-dataset-class)
+    - [The Model Class](#the-model-class)
+    - [train_model.py](#train_modelpy)
+
+
 ## A Simple Strategy for Dataset and Model Versioning
 
 To recap, the data engineering team will deliver the latest tranche of training data to an AWS S3 bucket, in CSV format. They will take responsibility for verifying that these files have the correct schema and contain no unexpected errors. Each filename will contain the timestamp of its creation, in ISO format, so that the datasets in the bucket will look as follows:
 
-```text
+```s
 s3://time-to-dispatch/
 |-- datasets/
     |-- time_to_dispatch_2021-07-03T23:05:32.csv
@@ -39,7 +68,7 @@ Because this concept of a dataset is bigger than just an arbitrarily named file 
 
 Trained models will be serialised to file using Python’s [pickle](https://docs.python.org/3.8/library/pickle.html) module (this works well for SciKit-Learn models), and uploaded to the same AWS bucket, using the same timestamped file-naming convention:
 
-```text
+```s
 s3://time-to-dispatch/
 |-- models/
     |-- time_to_dispatch_2021-07-03T23:45:23.csv
@@ -61,7 +90,7 @@ There is a significant development effort required for implementing the function
 
 The canonical way for distributing reusable Python modules, is by implementing them within a Python package that can be installed into any project that benefits from the functionality. This is what we have done for the dataset and model versioning functionality described in the previous section, and for configuring the logger used in both stages (so we can can enforce a common log format across projects). You can explore the codebase for this package, named `bodywork-pipeline-utils`,  on [GitHub](https://github.com/bodywork-ml/bodywork-pipeline-utils). The functions and classes within it are shown below,
 
-```text
+```s
 |-- aws
     |-- Dataset
     |-- get_latest_csv_dataset_from_s3
@@ -80,13 +109,13 @@ A discussion of best practices for developing a Python package is beyond the sco
 
 The easiest way to distribute Python packages within an organisation is directly from your Version Control System (VCS) - e.g. a remote Git repository hosted on GitHub. You do not **need** to host an internal PyPI server, unless you have a specific reason to do so. To install a Python package from a remote Git repo you can use,
 
-```plaintext
+```s
 $ pip install git+https://github.com/bodywork-ml/bodywork-pipeline-utils@v0.1.5
 ```
 
 Where `v0.1.5` is the release tag, but could also be a Git commit hash. This will need to be specified in `requrements_pipe.txt` as,
 
-```text
+```s
 git+https://github.com/bodywork-ml/bodywork-pipeline-utils@v0.1.5
 ```
 
@@ -170,7 +199,7 @@ Pipelines can benefit from parametrisation to make them re-usable across deploym
 
 Each stage of our pipeline is defined by an executable Python module.  The easiest way to pass arguments to a module is via the command line. For example,
 
-```text
+```s
 $ python -m pipeline.train_model time-to-dispatch 0.9 0.8
 ```
 
@@ -696,7 +725,7 @@ The key changes from the version in Part One are as follows:
 
 If we start the server locally,
 
-```text
+```s
 $ python -m pipeline.serve_model time-to-dispatch
 
 2021-07-24 09:56:42,718 - INFO - serve_model.<module> - Successfully loaded model: name:time-to-dispatch|model_type:<class 'sklearn.tree._classes.DecisionTreeRegressor'>|model_timestamp:2021-07-20 14:44:13.558375|model_hash:b4860f56fa24193934fe1ea51b66818d|train_dataset_key:datasets/time_to_dispatch_2021-07-01T16|45|38.csv|train_dataset_hash:"759eccda4ceb7a07cda66ad4ef7cdfbc"|pipeline_git_commit_hash:NA
@@ -709,7 +738,7 @@ INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
 
 Then we can send a test request,
 
-```text
+```s
 $ curl http://localhost:8000/api/v0.1/time_to_dispatch \
     --request POST \
     --header "Content-Type: application/json" \
@@ -866,7 +895,7 @@ logging:
 
 This will instruct Bodywork to look for `AWS_ACCESS_KEY_ID`,  `AWS_SECRET_ACCESS_KEY` and `AWS_DEFAULT_REGION` in a secret record called `aws-credentials`, so that it can inject these secrets into the containers running the stages of our pipeline (as environment variables that will be detected silently). So, these will have to be created, which can be done as follows,
 
-```text
+```s
 $ bw create secret aws-credentials \
     --group=dev \
     --data AWS_ACCESS_KEY_ID=put-your-key-in-here \
@@ -876,7 +905,7 @@ $ bw create secret aws-credentials \
 
 Now you’re ready to push this branch to your remote Git repo! If your tests pass and your colleagues approve the merge, the CD part of the CI/CD pipeline we setup in Part One will ensure the new pipeline is deployed to Kubernetes by Bodywork and executed immediately. Bodywork will perform a rolling-deployment that will ensure zero down-time and automatically roll-back failed deployments to the previous version. When Bodywork has finished, test the new web API,
 
-```text
+```s
 $ curl http://CLUSTER_IP/pipelines/time-to-dispatch--serve-model/api/v0.1/time_to_dispatch \
     --request POST \
     --header "Content-Type: application/json" \
@@ -898,7 +927,7 @@ See our guide to [accessing services](https://bodywork.readthedocs.io/en/latest/
 
 At this point, the pipeline will have deployed a model using the most recent dataset made available for this task. We know, however, that new data will arrive every Friday evening and so we’d like to schedule the pipeline to run just after the data is expected. We can achieve this using Bodywork cronjobs, as follows,
 
-```text
+```s
 $ bw create cronjob https://github.com/bodywork-ml/ml-pipeline-engineering \
     --name=weekly-update \
     --branch master \
@@ -909,8 +938,6 @@ $ bw create cronjob https://github.com/bodywork-ml/ml-pipeline-engineering \
 ## Wrap-Up
 
 In this second part we have gone from a skeleton “Hello, Production!” deployment to a fully-functional train-and-deploy pipeline, that automates re-training and re-deployment in a production environment, on a periodic basis. We have factored-out common code so that it can be re-used across projects and discussed various strategies for developing automated tests for both stages of the pipeline, ensuring that subsequent modifications can be reliably integrated and deployed, with relative ease.
-
-In the final part of this series we will cover monitoring and observability and aim to to answer the question, “*How will I know when something has gone wrong?*”.
 
 ## Appendix
 

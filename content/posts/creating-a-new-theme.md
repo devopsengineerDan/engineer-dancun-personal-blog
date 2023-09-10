@@ -994,11 +994,12 @@ $ vi themes/zafta/layouts/partials/footer.html
 
 The most noticeable difference between a template call and a partials call is the lack of path:
 
-```s
+```html
 {{ template "theme/partials/header.html" . }}
 ```
 versus
-```s
+
+```html
 {{ partial "header.html" . }}
 ```
 Both pass in the context.
@@ -1052,7 +1053,7 @@ It's common to have posts display the date that they were written or published, 
 
 We'll start by updating the template used to render the posts. The template code will look like:
 
-```s
+```html
 {{ .Date.Format "Mon, Jan 2, 2006" }}
 ```
 

@@ -1,24 +1,47 @@
-#baseURL = "http://example.org/"
-#languageCode = "en-us"
-#title = "My New Hugo Site"
+baseURL = "https://example.com"
+title = "Your title"
+themesDir = "../.."
+theme = "m10c"
+paginate = 8
 
-#[[params.social]]
-  #icon = "github"
-  #name = "My Github"
- # url = "https://github.com/vaga"
-  
-#[params.style]
-  #darkestColor = "#d35050"
-  #darkColor = "#212121"
-  #lightColor = "#f5e3e0"
-  #lightestColor = "#f5f5f5"
- # primaryColor = "#ffffff"
-  
-#[[menu.main]]
-  #identifier = "tags"
-  #name = "Tags"
- # url = "/tags/"
-  
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 2
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 3
+
+[params]
+  author = "John Doe"
+  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  menu_item_separator = " - "
+  [[params.social]]
+    icon = "github"
+    name = "Github"
+    url = "https://github.com/gohugoio"
+  [[params.social]]
+    icon = "twitter"
+    name = "Twitter"
+    url = "https://twitter.com/gohugoio"
+
+  # Default theme
+  #[params.style]
+  #  darkestColor = "#242930"
+  #  darkColor = "#353b43"
+  #  lightColor = "#afbac4"
+  #  lightestColor = "#ffffff"
+  #  primaryColor = "#57cc8a"
+
   # Green theme
   #[params.style]
   #  darkestColor = "#315659"
@@ -34,66 +57,3 @@
   #  lightColor = "#d6d6d6"
   #  lightestColor = "#d3d3d3"
   #  primaryColor = "#ffffff"
-
-
-
-
-
-
-
-
-#baseURt = "https://devopsengineerdan.github.io/"
-baseURL = "https://devopsengineerdan.github.io/"
-languageCode = "en-us"
-author = "Devops Engineer Dan" 
-title = "Engineer Dancun"
-#themesDir = "./static/avatar.jpg"
-themesDir = "../.."
-theme = "m10c"
-paginate = 8
-
-[menu]
-  [[menu.main]]
-    identifier = "home"
-    name = "Home"
-    url = "https://devopsengineerdan.github.io/"
-    weight = 1
-  [[menu.main]]
-    identifier = "tags"
-    name = "Tags"
-    url = "https://devopsengineerdan.github.io/tags/"
-    weight = 2
-  [[menu.main]]
-    identifier = "about"
-    name = "About"
-    url = "https://devopsengineerdan.github.io/about/"
-    weight = 3
-
-[params]
-  author = "Dancun Manyinsa"
-  description = "Software Engineer, Researcher(AI and Quantum Science), and Habitual Quant"
-  menu_item_separator = " - "
-  [[params.social]]
-    icon = "github"
-    name = "Github"
-    url = "https://www.github.com/DancunManyinsa"
-  [[params.social]]
-    icon = "linkedin"
-    name = "Linkedin"
-    url = "https://www.linkedin.com/in/dancun-manyinsa-42518a17b/"
-  [[params.social]]
-    icon = "gmail"
-    name = "Gmail"
-    url = "mailto:dancunmoruri@gmail.com"
-
-  
-    
-  # Default theme
-  # Devops Engineer Dan preference
-  [params.style]
-    darkestColor = "#00013A"    
-    darkColor = "#242930"  
-    lightColor =    "#828282"
-    lightestColor = "#ffffff"
-    primaryColor =  "#ffd700"   
-

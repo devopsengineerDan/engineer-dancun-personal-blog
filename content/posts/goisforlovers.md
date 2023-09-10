@@ -33,25 +33,25 @@ functions.
 **Go variables and functions are accessible within {{ }}**
 
 Accessing a predefined variable "foo":
-```s
+```html
 {{ foo }}
 ```
 **Parameters are separated using spaces**
 
 Calling the add function with input of 1, 2:
-```s
+```html
 {{ add 1 2 }}
 ```
 
 **Methods and fields are accessed via dot notation**
 
 Accessing the Page Parameter "bar"
-```s
+```html
 {{ .Params.bar }}
 ```
 
 **Parentheses can be used to group items together**
-```s
+```html
 {{ if or (isset .Params "alt") (isset .Params "caption") }} Caption {{ end }}
 ```
 
@@ -69,7 +69,7 @@ A variable is accessed by referencing the variable name.
   
 
 Variables can also be defined and referenced.
-```s
+```html
 {{ $address := "123 Main St."}}
 {{ $address }}
 ```
@@ -86,7 +86,7 @@ followed by the required parameters separated by spaces. Template
 functions cannot be added without recompiling hugo.
 
 **Example:**
-```s
+```html
 {{ add 1 2 }}
 ```
 
@@ -98,7 +98,7 @@ include a trailing dot. The templates location will always be starting at
 the /layout/ directory within Hugo.
 
 **Example:**
-```s
+```html
 {{ template "chrome/header.html" . }}
 ```
 
@@ -113,21 +113,21 @@ a map, array or slice. The following are different examples of how to use
 range.
 
 **Example 1: Using Context**
-```s
+```html
 {{ range array }}
     {{ . }}
 {{ end }}
 ```
 
 **Example 2: Declaring value variable name**
-```s
+```html
 {{range $element := array}}
     {{ $element }}
 {{ end }}
 ```
 
 **Example 2: Declaring key and value variable name**
-```s
+```html
 {{range $index, $element := array}}
     {{ $index }}
     {{ $element }}
@@ -152,7 +152,7 @@ Go Templates treat the following values as false:
 ```
 
 **Example 2: If -> Else**
-```s
+```html
 {{ if isset .Params "alt" }}
     {{ index .Params "alt" }}
 {{else}}
@@ -161,7 +161,7 @@ Go Templates treat the following values as false:
 ```
 
 **Example 3: And & Or**
-```s
+```html
 {{ if and (or (isset .Params "title") (isset .Params "caption")) (isset .Params "attr")}}
 ```
 
@@ -177,7 +177,7 @@ The first example above could be simplified as:
 ```
 
 **Example 5: If -> Else If**
-```s
+```html
 {{ if isset .Params "alt" }}
     {{ index .Params "alt" }}
 {{ else if isset .Params "caption" }}
@@ -200,33 +200,33 @@ becomes the last parameter of the next pipeline.
 A few simple examples should help convey how to use the pipe.
 
 **Example 1 :**
-```s
+```html
 {{ if eq 1 1 }} Same {{ end }}
 ```
 is the same as
 
-```s
+```html
 {{ eq 1 1 | if }} Same {{ end }}
 ```
 It does look odd to place the if at the end, but it does provide a good
 illustration of how to use the pipes.
 
 **Example 2 :**
-```s
+```html
 {{ index .Params "disqus_url" | html }}
 ```
 
 Access the page parameter called "disqus_url" and escape the HTML.
 
 **Example 3 :**
-```s
+```html
 {{ if or (or (isset .Params "title") (isset .Params "caption")) (isset .Params "attr")}}
 Stuff Here
 {{ end }}
 ```
 
 Could be rewritten as
-```s
+```html
 {{  isset .Params "caption" | or isset .Params "title" | or isset .Params "attr" | if }}
 Stuff Here
 {{ end }}
@@ -273,7 +273,7 @@ doesn't make a lot of sense. We've defined a variable in our front matter
 of some pages to turn off the TOC from being displayed.
 
 Here is the example front matter:
-```s
+```yaml
 title: "Permalinks"
 date: "2013-11-18"
 aliases:

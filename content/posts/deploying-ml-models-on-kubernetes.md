@@ -2,8 +2,8 @@
 title = " Deploying machine learning models on kubernetes"
 tags = ["python","rust","c"]
 date = "2021-03-03"
-#cover = ["images/screenshot.png"]
-  
+#cover = ["/images/screenshot.png"]
+ 
 +++
 ---
 
