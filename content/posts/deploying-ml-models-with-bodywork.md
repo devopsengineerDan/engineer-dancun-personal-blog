@@ -1,10 +1,9 @@
----
-title: "Deploying ML Models with Bodywork"
-tags: ["python"]
-date: 2023-09-09T13:28:50+03:00
++++
+title = "Deploying ML Models with Bodywork"
+tags = ["python"]
+date = 2023-09-09T13:28:50+03:00
 #Decide to delete draft or change it to false in order to display post on website
-draft: false
----
++++
 ------
 # Deploying ML Models with Bodywork
 

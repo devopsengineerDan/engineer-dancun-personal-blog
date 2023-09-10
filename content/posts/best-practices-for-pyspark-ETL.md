@@ -1,10 +1,9 @@
----
-title: "Best Practices for PySpark ETL Projects"
-tags: ["python"]
-date: 2023-09-09T13:27:53+03:00
++++
+title = "Best Practices for PySpark ETL Projects"
+tags = ["python"]
+date = 2023-09-09T13:27:53+03:00
 #Decide to delete draft or change it to false in order to display post on website
-draft: false
----
++++
 ------
 ![etl](https://github.com/devopsengineerDan/engineer-dancun-personal-blog/assets/48592378/5aecd34b-e722-4390-ad77-5ed10aa5f3a7)
 

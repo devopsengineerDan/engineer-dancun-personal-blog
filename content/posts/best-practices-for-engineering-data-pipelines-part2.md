@@ -1,10 +1,9 @@
----
-title: "Best Practices for Engineering ML Pipelines - Part 2"
-tags: ["python"]
-date: 2023-09-09T13:30:03+03:00
++++
+title = "Best Practices for Engineering ML Pipelines - Part 2"
+tags = ["python"]
+date = 2023-09-09T13:30:03+03:00
 #Decide to delete draft or change it to false in order to display post on website
-draft: false
----
++++
 -------
 
 ![pipelines-logo](https://github.com/devopsengineerDan/engineer-dancun-personal-blog/assets/48592378/4eb0599c-7062-4e5a-84cf-b03055e87bf1)
