@@ -48,6 +48,8 @@ themesDir = "./static/avatar.jpg"
 #themesDir = "../.."
 #theme = "m10c"
 paginate = 8
+layoutdir = "./layouts"
+publishdir = "./public"
 
 [menu]
   [[menu.main]]
