@@ -1,7 +1,7 @@
 # engineer-dancun-personal-blog project 
 
-![Dancun's-profile-photo](https://github.com/devopsengineerDan/engineer-dancun-personal-blog/blob/main/static/avatar.jpg)
 
+![avatar](https://github.com/devopsengineerDan/engineer-dancun-personal-blog/assets/48592378/22371748-1176-4a73-9a56-338c2f474a34)
 
 ![pipelines-logo](https://github.com/devopsengineerDan/engineer-dancun-personal-blog/assets/48592378/4eb0599c-7062-4e5a-84cf-b03055e87bf1)
 
