@@ -5,7 +5,7 @@ title = "About"
 ![avatar](https://github.com/devopsengineerDan/engineer-dancun-personal-blog/assets/48592378/22371748-1176-4a73-9a56-338c2f474a34)
 
 
-I am a software engineer. I major in the fields of Cybersecurity and Artificial Intelligence. I provide Security Intelligence services for companies and multi-agencies.
+I am a software engineer. I major in the fields of Cybersecurity and Artificial Intelligence. I provide Security Intelligence services for companies and multi-agencies. My expertise help strengthen their security posture by conducting security vulnerability assessments, audits, providing security best practices in the entire system infrastructure and source code. 
 
 When there’s spare time I pursue fitness goals, ride bicycles, swim, write code (for fun!), play pool and chess. I find inspiration through hikes and driving. 
 
