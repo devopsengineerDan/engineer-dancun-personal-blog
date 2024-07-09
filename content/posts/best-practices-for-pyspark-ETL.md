@@ -257,7 +257,7 @@ self.assertTrue([col in expected_data.columns
 To execute the example unit test for this project run,
 
 ```s
-pipenv run python -m unittest tests/test_*.py
+$ pipenv run python -m unittest tests/test_*.py
 ```
 
 If you're wondering what the `pipenv` command is, then read the next section.
