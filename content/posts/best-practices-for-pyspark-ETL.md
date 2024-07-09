@@ -121,7 +121,7 @@ Option (1) is by far the easiest and most flexible approach, so we will make use
 Assuming that the `$SPARK_HOME` environment variable points to your local Spark installation folder, then the ETL job can be run from the project's root directory using the following command from the terminal,
 
 ```s
-$SPARK_HOME/bin/spark-submit \
+$ SPARK_HOME/bin/spark-submit \
 --master local[*] \
 --packages 'com.some-spark-jar.dependency:1.0.0' \
 --py-files dependencies.zip \
@@ -271,13 +271,13 @@ We use [Pipenv](https://docs.pipenv.org) for managing project dependencies and P
 To get started with Pipenv, first of all download it - assuming that there is a global version of Python available on your system and on the PATH, then this can be achieved by running the following command,
 
 ```s
-pip3 install pipenv
+$ pip3 install pipenv
 ```
 
 Pipenv is also available to install from many non-Python package managers. For example, on OS X it can be installed using the [Homebrew](https://brew.sh) package manager, with the following terminal command,
 
 ```s
-brew install pipenv
+$ brew install pipenv
 ```
 
 For more information, including advanced configuration options, see the [official Pipenv documentation](https://docs.pipenv.org).
@@ -287,7 +287,7 @@ For more information, including advanced configuration options, see the [officia
 Make sure that you're in the project's root directory (the same one in which the `Pipfile` resides), and then run,
 
 ```s
-pipenv install --dev
+$ pipenv install --dev
 ```
 
 This will install all of the direct project dependencies as well as the development dependencies (the latter a consequence of the `--dev` flag).
@@ -297,13 +297,13 @@ This will install all of the direct project dependencies as well as the developm
 In order to continue development in a Python environment that precisely mimics the one the project was initially developed with, use Pipenv from the command line as follows,
 
 ```s
-pipenv run python3
+$ pipenv run python3
 ```
 
 The `python3` command could just as well be `ipython3`, for example,
 
 ```s
-pipenv run ipython
+$ pipenv run ipython
 ```
 
 This will fire-up an IPython console session *where the default Python 3 kernel includes all of the direct and development project dependencies* - this is our preference.
@@ -313,7 +313,7 @@ This will fire-up an IPython console session *where the default Python 3 kernel 
 Prepending `pipenv` to every command you want to run within the context of your Pipenv-managed virtual environment can get very tedious. This can be avoided by entering into a Pipenv-managed shell,
 
 ```s
-pipenv shell
+$ pipenv shell
 ```
 
 This is equivalent to 'activating' the virtual environment; any command will now be executed within the virtual environment. Use `exit` to leave the shell session.
