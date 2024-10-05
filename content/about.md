@@ -13,6 +13,7 @@ Here are some of the technologies I work with:
 
   * HTML, CSS, Pyscript
   * Python
+  * MicroPython
   * C
 
 
