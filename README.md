@@ -2,7 +2,6 @@
 
 
 ![avatar](https://github.com/devopsengineerDan/engineer-dancun-personal-blog/assets/48592378/22371748-1176-4a73-9a56-338c2f474a34)
-![kevo](https://github.com/user-attachments/assets/c76fa9e8-766f-4cba-b50d-07d330339192)
 
 
 
