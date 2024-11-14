@@ -62,4 +62,29 @@
 
 ### GOAD PART 1
 
+![goad_part1_1](https://github.com/user-attachments/assets/03da8b24-ab3c-4264-b6dc-2851c0840b8c)
+![goad_part1_2](https://github.com/user-attachments/assets/758bc9f7-7337-45e7-8ab5-3bff783f6d5f)
+![goad_part1_3](https://github.com/user-attachments/assets/2358e58c-56c1-4f28-80b7-8b82781d9163)
+![goad_part1_4](https://github.com/user-attachments/assets/f37d19a8-5be3-459a-856d-d523212b6b01)
+![goad_part1_5](https://github.com/user-attachments/assets/cedea679-d0b7-419d-90b4-a0ef442b96ad)
+![goad_part1_6](https://github.com/user-attachments/assets/1ce0139d-4084-4ccf-b4fb-078c59dd8f86)
+![goad_part1_7](https://github.com/user-attachments/assets/cdcb2492-9302-4229-8e16-7c9f549fe3c5)
+![goad_part1_8](https://github.com/user-attachments/assets/7663bff7-5d78-4a4b-a343-f33533689439)
+![goad_part1_9](https://github.com/user-attachments/assets/2e3cd50c-1aad-43c0-8e93-6ea07d10723b)
+![goad_part1_10](https://github.com/user-attachments/assets/fd776074-0b08-4afc-83e7-0cac91ffa914)
+![goad_part1_11](https://github.com/user-attachments/assets/5d835d65-8d56-4663-87c2-f81f0feca7bb)
+![goad_part1_12](https://github.com/user-attachments/assets/11545056-36a1-4a6f-a3a9-33ab90454ba0)
+![goad_part1_13](https://github.com/user-attachments/assets/ae673976-8fb4-4227-8f75-eca024df54e8)
+![goad_part1_14](https://github.com/user-attachments/assets/a50dc902-2703-4b25-ae6a-e7ed0ebb5e06)
+![goad_part1_15](https://github.com/user-attachments/assets/e123e631-0f38-41f3-b417-4144e5c50cb1)
+![goad_part1_16](https://github.com/user-attachments/assets/db05a801-60f1-4e3d-90c6-d5eb6069d2bf)
+![goad_part1_17](https://github.com/user-attachments/assets/b3f30989-8e8e-421b-a756-3360632a0937)
+![goad_part1_18](https://github.com/user-attachments/assets/7dd00f45-b5f7-453c-ac7c-b6849bbdefcf)
+![goad_part1_19](https://github.com/user-attachments/assets/b50fcbab-b8bc-46aa-9ced-6bd578437dc7)
+![goad_part1_20](https://github.com/user-attachments/assets/362213ff-b039-4261-b69b-20cf2b4888ad)
+![goad_part1_21](https://github.com/user-attachments/assets/4fb90968-3ac1-43b8-956b-59d21cf153ee)
+![goad_part1_22](https://github.com/user-attachments/assets/8450cd49-0fd6-4237-9597-ec07d1b36fa0)
+
+
 ### GOAD PART 2
+
