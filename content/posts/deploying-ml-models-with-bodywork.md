@@ -5,8 +5,6 @@ date = 2023-09-09T13:28:50+03:00
 #Decide to delete draft or change it to false in order to display post on website
 +++
 ------
-# Deploying ML Models with Bodywork
-
 
 ![bodywork-cli](https://github.com/devopsengineerDan/engineer-dancun-personal-blog/assets/48592378/96dcd641-e202-457f-9cfe-b857196204c7)
 
