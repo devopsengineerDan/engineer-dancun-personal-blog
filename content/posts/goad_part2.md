@@ -7,7 +7,7 @@ tags = ["cybersecurity"]
 
 ---
 
-# GOAD Part 2: Domain Enumeration
+![goad_part2_domain](https://github.com/user-attachments/assets/32c94610-84d8-4a8c-a73a-609cd34d2624)
 
 > ### Table of Contents
 
