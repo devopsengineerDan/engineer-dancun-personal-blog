@@ -88,6 +88,7 @@
 
 ### GOAD PART 2
 
+![goad_part2_domain](https://github.com/user-attachments/assets/32c94610-84d8-4a8c-a73a-609cd34d2624)
 ![goad_part2_1](https://github.com/user-attachments/assets/077ccce7-ed98-4800-aee8-83f15893809a)
 ![goad_part2_2](https://github.com/user-attachments/assets/a2ed153d-e430-4a0a-8d7f-d175cfb4e8d2)
 ![goad_part2_3](https://github.com/user-attachments/assets/96e24b3e-2cf0-4fb4-94c9-d85bb627ab97)
