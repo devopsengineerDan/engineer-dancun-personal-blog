@@ -8,8 +8,6 @@ draft: false
 
 ---
 
-# Creating malicious .MSIX files for initial access
-
 ![msix1](https://github.com/user-attachments/assets/29621ee8-2024-4789-b61b-7aab24927f0d)
 
 > ### Table of Contents
