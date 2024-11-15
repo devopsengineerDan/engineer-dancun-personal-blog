@@ -110,3 +110,12 @@
 ![goad_part2_13](https://github.com/user-attachments/assets/333c11dd-0c8f-484b-9986-11fcbf3bfd93)
 
 
+### CODE REVIEW PART 1
+
+![code1](https://github.com/user-attachments/assets/ec04ba0f-fbff-4e38-9963-302be29344c3)
+
+
+
+### CODE REVIEW PART 2
+
+![code2](https://github.com/user-attachments/assets/0506d067-25c6-49af-8db1-d8b4c440677c)
