@@ -103,7 +103,7 @@ class MyServer(BaseHTTPRequestHandler):
 
 ## Impact
 
-1. `Arbitrary File read`:` An attacker can read files on the system with the permissions the web server is running on. This could lead to the disclosure of sensitive info.
+1. `Arbitrary File read`: An attacker can read files on the system with the permissions the web server is running on. This could lead to the disclosure of sensitive info.
 2. `Remote Code Execution`: Typically, this vulnerability exists commonly in applications that allow one to upload files. An attacker could potentially upload malware to a server and use the path traversal vuln to execute the file gaining remote code execution on a server.
 
 ## Mitigations
