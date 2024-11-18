@@ -1,5 +1,22 @@
 # engineer-dancun-personal-blog project 
 
+> [!NOTE]  
+> Highlights information that users should take into account, even when skimming.
+
+> [!TIP]
+> Optional information to help a user be more successful.
+
+> [!IMPORTANT]  
+> Crucial information necessary for users to succeed.
+
+> [!WARNING]  
+> Critical content demanding immediate user attention due to potential risks.
+
+> [!CAUTION]
+> Negative potential consequences of an action.
+
+> [!ALERT] 
+> Highlights information that users should take into account, even when skimming.
 
 ![Adam](https://github.com/devopsengineerDan/engineer-dancun-personal-blog/assets/48592378/22371748-1176-4a73-9a56-338c2f474a34)
 ![David_Background](https://github.com/user-attachments/assets/3028137e-6fa1-4e4e-9e88-cc5dc69e4671)
