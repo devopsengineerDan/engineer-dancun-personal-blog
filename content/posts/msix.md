@@ -2,7 +2,7 @@
 title: "Creating malicious .MSIX files for initial access"
 date: 2024-11-12T23:43:31+03:00
 tags: ["cybersecurity"]
-draft: false
+draft: true
 #Decide to delete draft or change it to false in order to display post on website
 ---
 
