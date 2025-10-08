@@ -34,7 +34,8 @@ In summary, when a process sends or receives a message, the following set of act
  - The message(s) are sent via ioctl `IOCTL_BLUNDER_SEND_MSG` and received via `IOCTL_BLUNDER_RECV_MSG`.
 
 The following file operations play a major role in implemented the above actions:
-![blunder_fops](https://i.imgur.com/TBpJ1Dd.png)
+<!-- ![blunder_fops](https://i.imgur.com/TBpJ1Dd.png) -->
+<img src="/images/TBpJ1Dd.png">
 
 #### *blunder_open*
 
@@ -117,7 +118,8 @@ struct blunder_buffer {
 ```
 From the above code snippet in `blunder_mmap`, the address that will be returned to `mmap` and the address allocated on the Linux Kernel heap point to the same physical address, this therefore means that any change that is made on one side will be visible on the other (same mapping is shared). This seems a little secure since a userland process is not able to write to this mapping right? 
 
-![blunder_mmap](https://i.imgur.com/3pFNFTr.png)
+<!-- ![blunder_mmap](https://i.imgur.com/3pFNFTr.png) -->
+<img src="/images/3pFNFTr.png">
 
 From a hint provided by **BFS** [here](https://x.com/bluefrostsec/status/1586740929041506305). There is a flag called the `VM_MAYWRITE` flag that is a part of `vma->vm-flags` that was not checked. This flag is set by default if a device file is opened with write permissions.
 
@@ -130,7 +132,8 @@ The driver not checking for this flag during its `mmap` implementation means tha
 mprotect(addr, size, PROT_READ|PROT_WRITE); //simple code snippet for changing memory permmissions
 ``` 
 This leads to a sandboxed `AAW` in the shared mapping; by 'sandboxed' I mean the bug can only be used within the page size'd chunk range returned by `kmalloc` and shared between user and kernel land. 
-![wtf](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExeTYweTJtZnJsbmgyenFmZGtnM3c4b2RrZ2cwaTNqcGd0eHY0MGd2diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fnuSiwXMTV3zmYDf6k/giphy.gif)
+<!-- ![wtf](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExeTYweTJtZnJsbmgyenFmZGtnM3c4b2RrZ2cwaTNqcGd0eHY0MGd2diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/fnuSiwXMTV3zmYDf6k/giphy.gif) -->
+<img src="/images/kernel.gif">
 
 ### Heap Buffer Overflow
 
@@ -138,8 +141,8 @@ This leads to a sandboxed `AAW` in the shared mapping; by 'sandboxed' I mean the
 
 When a process sends a message for IPC, it uses the allocated mapping `proc->mapping` to store messages of the type `blunder_buffer` and the mapping is split to fit more messages as they're sent until that page-sized block is exhausted. This is evident from the following source code snippet that is called from `blunder_send_msg(struct blunder_proc *proc, struct blunder_user_message *__user arg)`. 
 
-![blunder_alloc_gef_buf](https://i.imgur.com/7RWf3lQ.png)
-
+<!-- ![blunder_alloc_gef_buf](https://i.imgur.com/7RWf3lQ.png) -->
+<img src="/images/7RWf3lQ.png">
 
 The `blunder_buffer` objects are tracked via a linked-list and an actual buffer is returned to copy the message from userland if its 'free' and if its size is greater than than provided by the user.
 
@@ -151,7 +154,8 @@ if (atomic_free(&buf->free) && buf->buffer_size >= size)
 
 When a buffer is returned by the above function, userland data is then copied to this location as evident from the following source code snippet. 
 
-![blunder_send_message](https://i.imgur.com/7YJsaCX.png)
+<!-- ![blunder_send_message](https://i.imgur.com/7YJsaCX.png) -->
+<img src="/images/7YJsaCX.png">
 
 The above `copy_from_user` function will copy `N` bytes which is the message size provided by the user. This size is only checked in the `alloc_get_buf` function, therefore, to be able to trigger a heap buffer overflow we need to find a way to modify `blunder_buffer->buffer_size` and this can be easily done as follows using the `AAW` introduced above:
 
@@ -205,7 +209,8 @@ The same can also be done in `kmalloc-32` by spraying `shm_file_data` elastic ob
 
 The following shows the source code snippet for spraying these elastic objects on the heap before triggering the allocation of our driver's `proc->alloc->mapping` via `mmap`.
 
-![elastic_objects_spray](https://i.imgur.com/2pUzIiu.png) 
+<!-- ![elastic_objects_spray](https://i.imgur.com/2pUzIiu.png) -->
+<img src="/images/2pUzIiu.png">
 
 > **NOTE**: I like to somewhat wrap my vulnerable objects between elastic objects during sprays, idk but it somehow increases the chances of having an elastic object allocated right after the vulnerable/victim object. 
 
@@ -215,7 +220,8 @@ The following shows the source code snippet for spraying these elastic objects o
 When the allocation of the elastic target and victim objects align, the `AAW` can be used to modify the split `blunder_buffer` object's buffer size, to introduce a heap overflow that can be used to overwrite `msg_msg->m_ts` value to a bigger value that should allow us read passed its (split) message segment in the `kmalloc-32` cache to leak kernel addresses.
 
 
-![attack_flow](https://i.imgur.com/5blcq5J.png)
+<!-- ![attack_flow](https://i.imgur.com/5blcq5J.png) -->
+<img src="/images/5blcq5J.png">
 
 The leaked ddress is the address of `INIT_IPC_NS` that resides in the kernel data area *(not affected by FG-KASLR)*, this can then be used to calculate the kernel base address to bypass `KASLR`.
 
@@ -251,7 +257,9 @@ struct blunder_buffer{
 
 From the list of addresses above, the only candidate that satisfied the above requirements was `core_pattern`. The following shows the analysis of this address in memory. 
 
-![image](https://i.imgur.com/qJpMfsO.png) 
+<!-- ![image](https://i.imgur.com/qJpMfsO.png) -->
+<img src="/images/qJpMfsO.png">
+
 
 #### *overwriting core_pattern*
 
@@ -292,7 +300,9 @@ When the final exploit is executed the following is the expected output. There i
 
 The following is the result of running the file exploit. 
 
-![file_exploit](https://i.imgur.com/pmVgqjm.png)
+<!-- ![file_exploit](https://i.imgur.com/pmVgqjm.png) -->
+<img src="/images/pmVgqjm.png">
+
 
 The final exploit and all the configuration files used for building the kernel are provided [here](https://github.com/mutur4/Blunder-Kernel-Driver)
 
