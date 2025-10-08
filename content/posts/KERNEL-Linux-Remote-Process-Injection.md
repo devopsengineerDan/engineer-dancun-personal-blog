@@ -20,7 +20,8 @@ Linux Processes can be enumerated by parsing the `/proc` directory and looking f
 The `UID` of the user that owns the process is stored in the `/proc/<PID>/status` file as shown for an example process below.
 
 <!-- ![Process UID](https://i.imgur.com/qlZIWWl.png) -->
- 
+<img src="/images/qlZIWWl.png">
+
 The following `C` code snippet will enumerate all processes to check for a valid **Firefox** process that shares the same `UID` as the injecting process `getuid()`. The information about this process is stored in a struct variable that will come in handly later when we initiate code injection.
 
 > The code snippet below is compatible in that it can be modified to inject into any chosen process of your chosing other than Firefox or automatically left to inject into a random(ly) chosen process that shares the same `UID` as the injector.
@@ -271,16 +272,19 @@ cleanup:
 
 The following shows a successful execution of the injector injecting into a `Firefox` process. 
 
-![Malware Injector](https://i.imgur.com/JlSK1Bp.png)
+<!-- ![Malware Injector](https://i.imgur.com/JlSK1Bp.png) -->
+<img src="/images/JlSK1Bp.png">
 
 The following is the task-manager on Kali Linux showing an `sh` process as a child process of the above `Firefox` process with the same `PID`. This is similar to the common `cmd.exe` as a child process of an unsual suspicious process in Windows mainly an `IOC` for Remote Process Injection.
 
 
-![Task Manager](https://i.imgur.com/EU2mEiu.png)
+<!-- ![Task Manager](https://i.imgur.com/EU2mEiu.png) -->
+<img src="/images/EU2mEiu.png">
 
 The following show as successful connect-back to ur listening port. 
 
-![Connect Back](https://i.imgur.com/9qYboUS.png)
+<!-- ![Connect Back](https://i.imgur.com/9qYboUS.png) -->
+<img src="/images/9qYboUS.png">
 
 The complete code injection malware can be found [here](https://github.com/mutur4/Linux-Malware/blob/main/Process.Injection/firefox-injector.c). The `strstr` function inside the `EnumProcess` function can be modified to inject into a specific process that suits you needs or it can be commented out to let the injector inject into a random process. 
 
