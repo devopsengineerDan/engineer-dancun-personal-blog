@@ -19,7 +19,7 @@ Linux Processes can be enumerated by parsing the `/proc` directory and looking f
 
 The `UID` of the user that owns the process is stored in the `/proc/<PID>/status` file as shown for an example process below.
 
-![Process UID](https://i.imgur.com/qlZIWWl.png)
+[![Process UID](https://i.imgur.com/qlZIWWl.png)
  
 The following `C` code snippet will enumerate all processes to check for a valid **Firefox** process that shares the same `UID` as the injecting process `getuid()`. The information about this process is stored in a struct variable that will come in handly later when we initiate code injection.
 
